@@ -4,13 +4,10 @@ from readCsv import ReadCSV
 
 def main():
     data = ReadCSV("terrorismData.csv")
-    topData = data.dataFrame.head()
+    topData = data.df.head()
     print(topData)
-    for i, line in enumerate(data.dataFrame):
-        if i > 50:
-            break
-        
-        #print(line)
+    print(data.df.dtypes)
+    
 
 
 if __name__ == "__main__":
