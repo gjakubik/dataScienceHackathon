@@ -54,7 +54,9 @@ dropCols = [
 class ReadCSV():
     def __init__(self, filename):
         
-        self.dataFrame = pd.read_csv(filename, low_memory=False)
-        self.dataFrame.drop(columns=dropCols, inplace=True)
-        self.dataFrame.set_index("eventid", inplace=True)
-        
+        self.df = pd.read_csv(filename, low_memory=False)
+        self.df.drop(columns=dropCols, inplace=True)
+        self.df.set_index("eventid", inplace=True)
+
+    def dateTime(self):
+        pd.to_datetime(self.df.Y*10000+self.df.M*100+self.df.D,format='%Y%m%d')
